@@ -1,0 +1,222 @@
+:root {
+    --primary: #00d2ff;
+    --secondary: #3a7bd5;
+    --bg-dark: #0f172a;
+    --card-bg: #1e293b;
+    --text-white: #f8fafc;
+    --accent-blue: #38bdf8;
+}
+
+/* Global Reset */
+body {
+    background: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    overflow-x: hidden; 
+}
+
+/* Typography with Fluid Scaling */
+h1, h2, h3 {
+    font-size: clamp(1.8rem, 5vw, 3rem); 
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    line-height: 1.6;
+}
+
+/* --- NAVIGATION & LOGO --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #334155;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 3px;
+    cursor: default;
+    text-shadow: 0 0 5px #fff, 0 0 20px var(--accent-blue), 0 0 40px var(--accent-blue);
+    animation: pulsate 2.5s infinite alternate;
+}
+
+@keyframes pulsate {
+    from { transform: scale(1); text-shadow: 0 0 5px #fff, 0 0 20px var(--accent-blue); }
+    to { transform: scale(1.05); text-shadow: 0 0 10px #fff, 0 0 40px var(--accent-blue); }
+}
+
+nav a { 
+    color: #f8fafc; 
+    text-decoration: none; 
+    margin-left: 20px; 
+    font-weight: bold; 
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+nav a:hover, .active-link { 
+    color: var(--accent-blue); 
+    border-color: var(--accent-blue);
+    background: rgba(56, 189, 248, 0.05);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Circular Logo Wrapper */
+.logo-circle {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--accent-blue);
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.8); 
+    box-shadow: 0 0 15px var(--accent-blue), inset 0 0 10px var(--accent-blue);
+    transition: all 0.4s ease;
+    animation: breathe 3s infinite alternate;
+}
+
+/* Calligraphy Text Style */
+.logo-text {
+    font-family: 'Great Vibes', cursive; 
+    font-size: 1.8rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transform: rotate(-5deg); 
+}
+
+/* Animation for the circular glow */
+@keyframes breathe {
+    from {
+        box-shadow: 0 0 10px var(--accent-blue), inset 0 0 5px var(--accent-blue);
+        transform: scale(1);
+    }
+    to {
+        box-shadow: 0 0 25px var(--accent-blue), inset 0 0 15px var(--accent-blue);
+        transform: scale(1.05);
+    }
+}
+
+
+nav {
+    padding: 10px 50px;
+}
+
+/* --- LAYOUT COMPONENTS --- */
+.container {
+    max-width: 1000px; 
+    min-width: 320px; 
+    margin: 40px auto; 
+    padding: 0 20px;
+    width: 90%;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #334155;
+    min-height: 300px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.btn {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    border: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    box-shadow: 0 0 20px var(--primary);
+    transform: scale(1.05);
+}
+
+/* --- CONTACT FORM --- */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.name-group {
+    display: flex;
+    gap: 20px;
+}
+
+input[type="text"], input[type="email"], textarea {
+    background: #111827;
+    border: 2px solid #334155;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+/* --- FOOTER & SOCIALS --- */
+footer {
+    background: var(--bg-dark);
+    padding: 50px 0;
+    margin-top: 60px;
+    border-top: 1px solid #1e293b;
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #111827;
+    border: 2px solid #1e293b;
+    color: #94a3b8;
+    font-size: 24px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.linkedin:hover { color: #0077b5; border-color: #0077b5; box-shadow: 0 0 20px rgba(0, 119, 181, 0.7); transform: translateY(-5px); }
+.instagram:hover { color: #e4405f; border-color: #e4405f; box-shadow: 0 0 20px rgba(228, 64, 95, 0.7); transform: translateY(-5px); }
+.whatsapp:hover { color: #25d366; border-color: #25d366; box-shadow: 0 0 20px rgba(37, 211, 102, 0.7); transform: translateY(-5px); }
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    nav { flex-direction: column; padding: 15px; }
+    nav a { margin: 8px 0; }
+    .name-group { flex-direction: column; }
+    .container { width: 95%; margin: 20px auto; }
+}
